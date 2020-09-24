@@ -1,0 +1,24 @@
+{
+  "name": "authoroo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "authoroo": "./bin/authoroo"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "capital-case": "^1.0.3",
+    "handlebars": "^4.7.6",
+    "inquirer": "^7.3.3",
+    "install": "^0.13.0",
+    "js-yaml": "^3.14.0",
+    "npm": "^6.14.8",
+    "yargs": "^16.0.3"
+  }
+}
