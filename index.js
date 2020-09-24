@@ -2,16 +2,19 @@ const path = require("path");
 const yargs = require("yargs");
 const initModule = require("./lib/init");
 const editModule = require("./lib/edit");
+const prettierModule = require("./lib/prettier");
 
 const options = yargs
   .scriptName("authoroo")
-  .usage("Run this utility from the root of the web-dev-programs folder.\n\nUsage: $0 [command] [options]")
+  .usage(
+    "Run this utility from the root of the web-dev-programs folder.\n\nUsage: $0 [command] [options]"
+  )
   .example(
     "$0 init [module]",
     "Initialize the checkpoints specified in the module file"
   )
-  .env('AUTHOROO')
-  .config('json')
+  .env("AUTHOROO")
+  .config("json")
   .alias("j", "json")
   .option("w", {
     alias: "webDevPath",
@@ -38,6 +41,12 @@ const options = yargs
     "Prompts for zid module and then document you wish to edit.",
     (yargs) => yargs,
     editModule
+  )
+  .command(
+    "prettier",
+    "Prompts for zid module and then runs prettier on every directory for the module.",
+    (yargs) => yargs,
+    prettierModule
   )
   .help("h")
   .alias("h", "help")
