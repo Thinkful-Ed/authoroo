@@ -1,10 +1,10 @@
-const path = require("path");
 const yargs = require("yargs");
-const initModule = require("./lib/init");
-const editModule = require("./lib/edit");
-const prettierModule = require("./lib/prettier");
+const editCommand = require("./lib/edit-command");
+const initCommand = require("./lib/init-command");
+const prettierCommand = require("./lib/prettier-command");
+const viewCommand = require("./lib/view-command");
 
-const options = yargs
+yargs
   .scriptName("authoroo")
   .usage(
     "Run this utility from the root of the web-dev-programs folder.\n\nUsage: $0 [command] [options]"
@@ -25,29 +25,10 @@ const options = yargs
     nargs: 1,
     type: "string",
   })
-  .command(
-    "init [module-yaml]",
-    "Initialize checkpoints from the speficied module yaml file.",
-    (yargs) => {
-      yargs.positional("module-yaml", {
-        type: "string",
-        describe: "the path to the module yaml file",
-      });
-    },
-    initModule
-  )
-  .command(
-    "edit",
-    "Prompts for zid module and then document you wish to edit.",
-    (yargs) => yargs,
-    editModule
-  )
-  .command(
-    "prettier",
-    "Prompts for zid module and then runs prettier on every directory for the module.",
-    (yargs) => yargs,
-    prettierModule
-  )
+  .command(initCommand)
+  .command(editCommand)
+  .command(prettierCommand)
+  .command(viewCommand)
   .help("h")
   .alias("h", "help")
   .alias("v", "version")
