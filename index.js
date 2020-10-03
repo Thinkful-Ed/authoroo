@@ -1,4 +1,5 @@
 const yargs = require("yargs");
+const answersCommand = require("./lib/answers-command");
 const editCommand = require("./lib/edit-command");
 const initCommand = require("./lib/init-command");
 const prettierCommand = require("./lib/prettier-command");
@@ -14,8 +15,6 @@ yargs
     "Initialize the checkpoints specified in the module file"
   )
   .env("AUTHOROO")
-  .config("json")
-  .alias("j", "json")
   .option("w", {
     alias: "webDevPath",
     default: process.env.WEB_DEV_PATH || process.cwd(),
@@ -29,6 +28,7 @@ yargs
   .command(editCommand)
   .command(prettierCommand)
   .command(viewCommand)
+  .command(answersCommand)
   .help("h")
   .alias("h", "help")
   .alias("v", "version")

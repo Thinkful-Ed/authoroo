@@ -1,0 +1,14 @@
+{{#each quizes}}
+# {{this.title}} Answer Key
+
+{{#each this.questions}} 
+{{this.position}}. {{this.prompt}}
+
+{{#each this.choices}} 
+    {{#if this.value}}
+    - {{this.label}}
+    {{/if}}
+{{/each}}
+
+{{/each}}
+{{/each}}
