@@ -1,0 +1,30 @@
+{
+  "data": {
+    "$type": "AdvancedCodeChallenge",
+    "instructions": "",
+    "state": "published",
+    "estimatedTime": 15,
+    "files": [],
+    "referenceFiles": [],
+    "enforce_all_tests_on_publish": true,
+    "topics": [],
+    "labels": [],
+    "runConfig": {
+      "language": "javascript",
+      "languageVersion": "12.x",
+      "testFramework": "jest",
+      "preset": null,
+      "envSet": null,
+      "webPreviews": false,
+      "codeTimeout": null,
+      "services": ["postgres"],
+      "forbiddenPaths": [],
+      "submissionIgnorePaths": ["^__tests__"]
+    },
+    "languages": [
+      {
+        "name": "javascript"
+      }
+    ]
+  }
+}

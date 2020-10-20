@@ -1,11 +1,12 @@
 const yargs = require("yargs");
 const answersCommand = require("./lib/answers-command");
+const assessmentCommand = require("./lib/assessment-command");
 const editCommand = require("./lib/edit-command");
 const initCommand = require("./lib/init-command");
 const prettierCommand = require("./lib/prettier-command");
 const viewCommand = require("./lib/view-command");
 
-yargs
+const config = yargs
   .scriptName("authoroo")
   .usage(
     "Run this utility from the root of the web-dev-programs folder.\n\nUsage: $0 [command] [options]"
@@ -24,11 +25,20 @@ yargs
     nargs: 1,
     type: "string",
   })
+  .option("d", {
+    alias: "debug",
+    default: 0,
+    demandOption: false,
+    describe: "Enable debug mode.",
+    count: true,
+    type: "boolean",
+  })
   .command(initCommand)
   .command(editCommand)
   .command(prettierCommand)
   .command(viewCommand)
   .command(answersCommand)
+  .command(assessmentCommand)
   .help("h")
   .alias("h", "help")
   .alias("v", "version")
