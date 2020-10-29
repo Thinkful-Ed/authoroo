@@ -13,7 +13,7 @@
     "inviteOnly": false,
     "enforcedTimeLimit": null,
     "manualEstimatedTime": null,
-    "suggestedEstimatedTime": 15,
+    "suggestedEstimatedTime": null,
     "copiedFromId": null,
     "showSolutionsToCandidates": true,
     "practiceSlug": "practice-pc",
