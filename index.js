@@ -2,6 +2,7 @@ const yargs = require("yargs");
 const answersCommand = require("./lib/answers-command");
 const assessmentCommand = require("./lib/assessment-command");
 const editCommand = require("./lib/edit-command");
+const extractCommand = require("./lib/extract-command");
 const initCommand = require("./lib/init-command");
 const prettierCommand = require("./lib/prettier-command");
 const viewCommand = require("./lib/view-command");
@@ -39,6 +40,7 @@ const config = yargs
   .command(viewCommand)
   .command(answersCommand)
   .command(assessmentCommand)
+  .command(extractCommand)
   .help("h")
   .alias("h", "help")
   .alias("v", "version")
