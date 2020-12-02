@@ -79,7 +79,6 @@ Once again you will be prompted to select the module and checkpoint. Once select
 ? Which checkpoint? Xx Assignment
 ? What's the estimated time, in minutes, to complete this challenge? 90
 ? What's the difficulty of this challenge? Intermediate
-? Copy from? (5d562fc4ea796d000fe59b7c)
 ```
 
 The updated code is pushed to Qualified.
