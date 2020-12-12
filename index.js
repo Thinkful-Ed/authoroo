@@ -7,6 +7,9 @@ const initCommand = require("./lib/init-command");
 const prettierCommand = require("./lib/prettier-command");
 const viewCommand = require("./lib/view-command");
 
+const fs = require("fs");
+const path = require("path");
+
 const config = yargs
   .scriptName("authoroo")
   .usage(
@@ -17,15 +20,6 @@ const config = yargs
     "Initialize the checkpoints specified in the module file"
   )
   .env("AUTHOROO")
-  .option("w", {
-    alias: "webDevPath",
-    default: process.env.WEB_DEV_PATH || process.cwd(),
-    demandOption: true,
-    describe:
-      "Path to the web-dev-project folder. Defaults to env.WEB_DEV_PATH or current working directory if WEB_DEV_PATH is not set.",
-    nargs: 1,
-    type: "string",
-  })
   .option("d", {
     alias: "debug",
     default: 0,
@@ -33,6 +27,21 @@ const config = yargs
     describe: "Enable debug mode.",
     count: true,
     type: "boolean",
+  })
+  .option("w", {
+    alias: "webDevPath",
+    default: process.env.WEB_DEV_PATH || process.cwd(),
+    demandOption: true,
+    describe:
+      "Path to the web-dev-programs folder. Defaults to env.WEB_DEV_PATH or the current working directory if WEB_DEV_PATH is not set.",
+    nargs: 1,
+    type: "string",
+  })
+  .coerce('w', function (webDevPath) {
+    if (fs.existsSync(path.join(webDevPath, 'modules'))) {
+      return webDevPath
+    }
+    throw new Error("Required `modules` folder not found.  Run this command from the root of the `web-dev-programs` folder, set the WEB_DEV_PATH environment variable, or specify -w <path-to-web-dev-programs-folder>.")
   })
   .command(initCommand)
   .command(editCommand)

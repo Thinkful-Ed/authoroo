@@ -1,12 +1,12 @@
-{{#each quizes}}
-# {{this.title}} Answer Key
+{{#each quizzes}}
+# {{{this.title}}} Answer Key
 
-{{#each this.questions}} 
-{{this.position}}. {{this.prompt}}
+{{#each this.questions}}
+{{this.position}}. {{{this.prompt}}}
 
-{{#each this.choices}} 
+{{#each this.choices}}
     {{#if this.value}}
-    - {{this.label}}
+    - {{{this.label}}}
     {{/if}}
 {{/each}}
 
