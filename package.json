@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "capital-case": "^1.0.3",
+    "debug": "^4.3.1",
     "directory-tree": "^2.2.5",
     "handlebars": "^4.7.6",
     "inquirer": "^7.3.3",

@@ -10,24 +10,31 @@ const viewCommand = require("./lib/view-command");
 const fs = require("fs");
 const path = require("path");
 
+const debug = require("debug")("authoroo");
+
 const config = yargs
   .scriptName("authoroo")
   .usage(
-    "Run this utility from the root of the web-dev-programs folder.\n\nUsage: $0 [command] [options]"
+    "Run this utility from the root of the web-dev-programs folder.\n\nUsage: $0 <command> [options]"
   )
-  .example(
-    "$0 init [module]",
-    "Initialize the checkpoints specified in the module file"
-  )
+  .example([
+    ["$0 [-h]", "Display this help message"],
+    ["$0 <command> -h", "Display help for the specified <command>"],
+    ["$0 init", "Initialize the checkpoints specified in the module file"],
+    [
+      "$0 extract -q <qualified-api-key>",
+      "Extract an assessment from qualified.io into the selected checkpoint",
+    ],
+    [
+      "$0 assessment -q <qualified-api-key>",
+      "Publish the selected checkpoint '/qualified' folder to qualified.io",
+    ],
+    [
+      "DEBUG=* $0 <command>",
+      "Enable debugging using the DEBUG environment variable",
+    ],
+  ])
   .env("AUTHOROO")
-  .option("d", {
-    alias: "debug",
-    default: 0,
-    demandOption: false,
-    describe: "Enable debug mode.",
-    count: true,
-    type: "boolean",
-  })
   .option("w", {
     alias: "webDevPath",
     default: process.env.WEB_DEV_PATH || process.cwd(),
@@ -37,11 +44,13 @@ const config = yargs
     nargs: 1,
     type: "string",
   })
-  .coerce('w', function (webDevPath) {
-    if (fs.existsSync(path.join(webDevPath, 'modules'))) {
-      return webDevPath
+  .coerce("w", function (webDevPath) {
+    if (fs.existsSync(path.join(webDevPath, "modules"))) {
+      return webDevPath;
     }
-    throw new Error("Required `modules` folder not found.  Run this command from the root of the `web-dev-programs` folder, set the WEB_DEV_PATH environment variable, or specify -w <path-to-web-dev-programs-folder>.")
+    throw new Error(
+      "Required `modules` folder not found.  Run this command from the root of the `web-dev-programs` folder, set the WEB_DEV_PATH environment variable, or specify -w <path-to-web-dev-programs-folder>."
+    );
   })
   .command(initCommand)
   .command(editCommand)
@@ -53,7 +62,9 @@ const config = yargs
   .help("h")
   .alias("h", "help")
   .alias("v", "version")
-  .epilog("copyright 2020")
+  .epilog(`copyright 2020-${new Date().getFullYear()}`)
   .wrap(yargs.terminalWidth())
   .demandCommand()
   .strict().argv;
+
+debug("config", config);

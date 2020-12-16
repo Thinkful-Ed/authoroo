@@ -1,10 +1,14 @@
 FROM node:lts-alpine
 
 WORKDIR /usr/app
+ENV CI true
 
-EXPOSE 5000
+ENV PORT {{port}}
 
-COPY package*.json ./
+EXPOSE {{port}}
+
+COPY package.json ./
+COPY package-lock.json ./
 
 RUN npm ci
 
@@ -12,6 +16,4 @@ COPY . .
 RUN rm -r /usr/app/solution
 COPY solution .
 
-RUN npm run build
-
-CMD [ "node", "/usr/app/src/server.js" ]
+CMD [ "npm", "start" ]
