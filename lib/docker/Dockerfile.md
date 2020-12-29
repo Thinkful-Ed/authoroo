@@ -12,6 +12,7 @@ Keeping any existing scripts, and add the following scripts to package.json
 ```json
 {
   "scripts": {
+    "docker:build": "docker image build . -t thinkful-ed/{{checkpoint}}",
     "docker:run": "docker run --rm -it -p {{port}}:{{port}} thinkful-ed/{{checkpoint}}",
     "docker:stop": "docker stop $(docker ps -q)",
     "docker:test": "docker run -it thinkful-ed/{{checkpoint}} npm test",
