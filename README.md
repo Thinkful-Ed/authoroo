@@ -6,13 +6,23 @@ Utility to make it easier to create and edit `zid` modules in the [web-dev-progr
 
 From the command line run `npx Thinkful-Ed/authoroo` for help.
 
+## Install globally 
+
+To install globally, so it does not have to download a new version every time, run the following command.
+
+`npm install -g Thinkful-Ed/authoroo`
+
+If yon install globally, you should also consider watching the repo to get notified when changes happen and can re-install to get the latest version.
+
 ### Linking an Existing Challenge
 
-If a code challenge exists in the repo you can link it to a Qualified challenge with the following steps.
+If a code challenge exists in the `web-deb-programs` repository but does not contain an `assessment.json` or `challenge.json` file, that means there is no link between the checkpoint and the challenge on qualified.
+
+You can create a link to the Qualified challenge with the following steps:
 
 `authoroo` creates a folder named _qualified_ inside the checkpoint folder and stores all code from Qualified there.
 
-If you have an existing folder rename it to _qualified_.
+If you have an existing folder, rename it to _qualified_.
 
 Run
 
@@ -39,7 +49,7 @@ You are then prompted for the module and the checkpoint.
   zid-fe-project-flashcards
 ```
 
-Select the appropriate module and checkpoint. Next enter the qualified assessment id.
+Select the appropriate module and checkpoint. Next you are prompted to enter the qualified assessment id.
 
 The Qualified challenge and related files are downloaded into the _qualified_ folder. For example:
 
@@ -64,15 +74,15 @@ directory: 6 file: 7
 
 ### Push updated challenge to Qualified
 
-After making necessary changes to the files you may push these changes to Qualified using the `authoroo assessment` command.
+After making necessary changes to the files you may push these changes to Qualified using the `authoroo publish` command.
 
 At the root of the `web-dev-programs` repository run the command:
 
 ```bash
-authoroo assessment -q <QUALIFIED _API_KEY>
+authoroo publish -q <QUALIFIED _API_KEY>
 ```
 
-Once again you will be prompted to select the module and checkpoint. Once selected you will be asked some basic challenge configuration questions. The defaults are all fine.
+Once again you will be prompted to select the module and checkpoint. Once selected, you will be asked some basic challenge configuration questions. The defaults will use values from the existing assessment.json file, so you can keep these values by hitting enter, or update them by entering new values. If this is the first time creating the challenge, enter the appropriate values for each prompt.
 
 ```bash
 ? Which module? zid-be-node-express
@@ -81,4 +91,6 @@ Once again you will be prompted to select the module and checkpoint. Once select
 ? What's the difficulty of this challenge? Intermediate
 ```
 
-The updated code is pushed to Qualified.
+The updated code is them pushed to Qualified.
+
+Links are printed out for the assessment and challenge, so you can review and publish the challenge and assessment on Qualified.io
