@@ -1,10 +1,10 @@
 const yargs = require("yargs");
 const answersCommand = require("./lib/answers-command");
-const assessmentCommand = require("./lib/assessment-command");
 const editCommand = require("./lib/edit-command");
 const extractCommand = require("./lib/extract-command");
 const initCommand = require("./lib/init-command");
 const prettierCommand = require("./lib/prettier-command");
+const publishCommand = require("./lib/publish-command");
 const viewCommand = require("./lib/view-command");
 
 const fs = require("fs");
@@ -23,11 +23,11 @@ const config = yargs
     ["$0 init", "Initialize the checkpoints specified in the module file"],
     [
       "$0 extract -q <qualified-api-key>",
-      "Extract an assessment from qualified.io into the selected checkpoint",
+      "Extract an assessment from qualified.io into the selected checkpoint's '/qualified' folder.",
     ],
     [
-      "$0 assessment -q <qualified-api-key>",
-      "Publish the selected checkpoint '/qualified' folder to qualified.io",
+      "$0 publish -q <qualified-api-key>",
+      "Publish the selected checkpoint's '/qualified' folder to qualified.io",
     ],
     [
       "DEBUG=* $0 <command>",
@@ -52,13 +52,13 @@ const config = yargs
       "Required `modules` folder not found.  Run this command from the root of the `web-dev-programs` folder, set the WEB_DEV_PATH environment variable, or specify -w <path-to-web-dev-programs-folder>."
     );
   })
-  .command(initCommand)
-  .command(editCommand)
-  .command(prettierCommand)
-  .command(viewCommand)
   .command(answersCommand)
-  .command(assessmentCommand)
+  .command(editCommand)
   .command(extractCommand)
+  .command(initCommand)
+  .command(prettierCommand)
+  .command(publishCommand)
+  .command(viewCommand)
   .help("h")
   .alias("h", "help")
   .alias("v", "version")
