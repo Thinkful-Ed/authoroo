@@ -23,11 +23,19 @@ const config = yargs
     ["$0 init", "Initialize the checkpoints specified in the module file"],
     [
       "$0 extract -q <qualified-api-key>",
-      "Extract an assessment from qualified.io into the selected checkpoint's '/qualified' folder.",
+      "Prompt for a module, checkpoint, and assessment-id, then extract an assessment from qualified.io into the selected checkpoint's '/qualified' folder.",
+    ],
+    [
+      "$0 extract -q <qualified-api-key> -a [assessment-id] -c [checkpoint-folder]",
+      "Extract the specified assessment-id from qualified.io into the specified checkpoint's '/qualified' folder.",
     ],
     [
       "$0 publish -q <qualified-api-key>",
-      "Publish the selected checkpoint's '/qualified' folder to qualified.io",
+      "Prompt for a module and checkpoint, then publish the checkpoint's '/qualified' folder to qualified.io",
+    ],
+    [
+      "$0 publish -q <qualified-api-key> -c [checkpoint-folder] ",
+      "Publish the specified checkpoint's '/qualified' folder to qualified.io",
     ],
     [
       "DEBUG=* $0 <command>",
