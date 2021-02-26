@@ -26,7 +26,7 @@ const config = yargs
       "Prompt for a module, checkpoint, and assessment-id, then extract an assessment from qualified.io into the selected checkpoint's '/qualified' folder.",
     ],
     [
-      "$0 extract -q <qualified-api-key> -a [assessment-id] -c [checkpoint-folder]",
+      "$0 extract -q <qualified-api-key> -a [assessment-id] -c [checkpoint-folder] -p [docker-port]",
       "Extract the specified assessment-id from qualified.io into the specified checkpoint's '/qualified' folder.",
     ],
     [
