@@ -1,5 +1,6 @@
 const yargs = require("yargs");
 const answersCommand = require("./lib/answers-command");
+const assessmentConfigureCommand = require("./lib/assessment-configure-command");
 const editCommand = require("./lib/edit-command");
 const extractCommand = require("./lib/extract-command");
 const initCommand = require("./lib/init-command");
@@ -63,6 +64,7 @@ const config = yargs
     );
   })
   .command(answersCommand)
+  .command(assessmentConfigureCommand)
   .command(editCommand)
   .command(extractCommand)
   .command(initCommand)
