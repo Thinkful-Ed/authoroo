@@ -12,7 +12,7 @@ const viewCommand = require("./lib/view-command");
 const fs = require("fs");
 const path = require("path");
 
-const debug = require("debug")("authoroo");
+const debug = require("./lib/debug")(__dirname, __filename);
 
 const config = yargs
   .scriptName("authoroo")
