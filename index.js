@@ -1,18 +1,18 @@
 const yargs = require("yargs");
 const answersCommand = require("./lib/answers-command");
+const assessmentConfigureCommand = require("./lib/assessment-configure-command");
 const editCommand = require("./lib/edit-command");
 const extractCommand = require("./lib/extract-command");
 const initCommand = require("./lib/init-command");
 const prettierCommand = require("./lib/prettier-command");
 const publishCommand = require("./lib/publish-command");
-const uploadChallengeCommand = require("./lib/upload-challenge-command");
 const viewChallengeCommand = require("./lib/view-challange-command");
 const viewCommand = require("./lib/view-command");
 
 const fs = require("fs");
 const path = require("path");
 
-const debug = require("debug")("authoroo");
+const debug = require("./lib/debug")(__dirname, __filename);
 
 const config = yargs
   .scriptName("authoroo")
@@ -63,14 +63,14 @@ const config = yargs
     );
   })
   .command(answersCommand)
+  .command(assessmentConfigureCommand)
   .command(editCommand)
   .command(extractCommand)
   .command(initCommand)
   .command(prettierCommand)
   .command(publishCommand)
-  .command(uploadChallengeCommand)
-  .command(viewChallengeCommand)
   .command(viewCommand)
+  .command(viewChallengeCommand)
   .help("h")
   .alias("h", "help")
   .alias("v", "version")
