@@ -3,6 +3,7 @@ const answersCommand = require("./lib/answers-command");
 const assessmentConfigureCommand = require("./lib/assessment-configure-command");
 const editCommand = require("./lib/edit-command");
 const extractCommand = require("./lib/extract-command");
+const extractSolutionCommand = require("./lib/extract-solution-command");
 const initCommand = require("./lib/init-command");
 const prettierCommand = require("./lib/prettier-command");
 const publishCommand = require("./lib/publish-command");
@@ -66,6 +67,7 @@ const config = yargs
   .command(assessmentConfigureCommand)
   .command(editCommand)
   .command(extractCommand)
+  .command(extractSolutionCommand)
   .command(initCommand)
   .command(prettierCommand)
   .command(publishCommand)
