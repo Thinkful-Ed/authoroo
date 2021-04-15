@@ -2,7 +2,7 @@
 
 > **Note**: Feel free to delete this file. It is just documentation for you to get the project setup correctly.
 
-In order to have the local development have functional parody with Qualified.io, you will use Docker
+In order to have the local development have functional parity with Qualified.io, you will use Docker
 to run or test the solution code. Essentially, anything in the `./solution` folder overwrites anything in the rest the project.
 
 ## npm scripts
