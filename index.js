@@ -7,6 +7,7 @@ const extractSolutionCommand = require("./lib/extract-solution-command");
 const initCommand = require("./lib/init-command");
 const prettierCommand = require("./lib/prettier-command");
 const publishCommand = require("./lib/publish-command");
+const updateChallengeCommand = require("./lib/update-challenge-command");
 const viewChallengeCommand = require("./lib/view-challange-command");
 const viewCommand = require("./lib/view-command");
 
@@ -71,6 +72,7 @@ const config = yargs
   .command(initCommand)
   .command(prettierCommand)
   .command(publishCommand)
+  .command(updateChallengeCommand)
   .command(viewCommand)
   .command(viewChallengeCommand)
   .help("h")
