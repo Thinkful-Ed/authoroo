@@ -2,6 +2,8 @@
 
 Utility to make it easier to create and edit modules in the [web-dev-programs](https://github.com/Thinkful-Ed/web-dev-programs) repository.
 
+![Authoroo](authoroo.gif)
+
 ## Usage
 
 From the command line run `npx Thinkful-Ed/authoroo` for help.
